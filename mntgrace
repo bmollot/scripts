@@ -1,0 +1,4 @@
+#!/bin/sh
+
+fusermount -qu /mnt/bmollot@grace
+sshfs -o follow_symlinks -o reconnect bmollot@linux.grace.umd.edu: /mnt/bmollot@grace

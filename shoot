@@ -1,0 +1,9 @@
+#!/bin/sh
+# Depends on scrot
+
+if [ -z "$1" ]
+then
+  scrot '%Y-%m-%d.png' -e 'mv $f ~/img/shots/' -d 1
+else
+  scrot "${1}.png" -e 'mv $f ~/img/shots/' -d 1
+fi

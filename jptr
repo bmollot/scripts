@@ -1,0 +1,10 @@
+#!/usr/bin/crystal
+Process.run "jupyter", ["notebook", "--no-browser"] do |proc|
+    url = ""
+    sleep 1
+    Process.run "jupyter", ["notebook", "list"] do |list|
+        url = list.output.gets_to_end.split('\n')[1].split(' ')[0]
+    end
+    Process.run "chromium", ["--incognito", url] if url != ""
+    proc.kill
+end

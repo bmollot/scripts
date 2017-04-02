@@ -1,0 +1,22 @@
+#!/bin/bash
+
+font=ctrld
+outer_size=13
+inner_size=13
+
+if [ $BLOCK_BUTTON -eq 1 ]
+then
+  if [ -e /tmp/ext-time ]
+  then
+    rm /tmp/ext-time
+  else
+    touch /tmp/ext-time
+  fi
+fi
+
+if [ -e /tmp/ext-time ]
+then
+  echo '<span font="'$font $outer_size'" fgcolor="#009688" bgcolor="#03A9F4"> </span><span font="'$font $inner_size'" bgcolor="#009688">'$(date "+ %y/%m/%d")'</span><span font="'$font $outer_size'" fgcolor="#263238" bgcolor="#009688"> </span> '
+else
+  echo '<span font="'$font $outer_size'" fgcolor="#009688" bgcolor="#03A9F4"> </span><span font="'$font $inner_size'" bgcolor="#009688">'$(date "+ %I:%M %P")'</span><span font="'$font $outer_size'" fgcolor="#263238" bgcolor="#009688"> </span> '
+fi

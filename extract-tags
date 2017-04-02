@@ -1,0 +1,13 @@
+#!/bin/bash
+# Depends on taffy for setting tags
+
+for arg in "$@"; do
+	NAME=${arg%.*}
+	NAME=${NAME/ - /|}
+	TITLE=$(echo $NAME | cut -d'|' -f2)
+	ARTIST=$(echo $NAME | cut -d'|' -f1)
+
+	taffy --clear "$arg"
+	taffy -r "$ARTIST" -t "$TITLE" "$arg"
+done
+

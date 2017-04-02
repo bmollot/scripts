@@ -1,0 +1,10 @@
+#!/bin/bash
+# Depends on ffmpeg
+
+
+for arg in "$@"; do
+    NAME=${arg%.*}
+    [[ "$arg" == "${NAME}.flac" ]] || ffmpeg -i "$arg" -acodec flac "${NAME}.flac"
+    [[ "$arg" == "${NAME}.opus" ]] || ffmpeg -i "${NAME}.flac" -acodec libopus "${NAME}.opus"
+    [[ "$arg" == "${NAME}.mp3" ]] || ffmpeg -i "${NAME}.flac" -acodec mp3 "${NAME}.mp3"
+done

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+stat=
+
+for i in $(acpi -b | cut -d" " -f3); do
+    if [ "$i" = "Charging," ]; then
+        stat=
+    elif [ "$i" = "Discharging," ]; then
+        stat=""
+    elif [ "$i" = "Full," ]; then
+	    stat=
+    fi
+done
+
+echo $stat

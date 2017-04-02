@@ -1,0 +1,13 @@
+#!/bin/bash
+
+FILE=/tmp/qr-$(date +%s).png
+if [ -n "$1" ]; then
+    FILE="$1"
+fi
+
+xclip -selection clip-board -o | qrencode -o "$FILE"
+xdg-open "$FILE"
+
+if [ -z "$1" ]; then
+    rm "$FILE"
+fi

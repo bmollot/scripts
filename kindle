@@ -1,0 +1,2 @@
+#!/bin/sh
+env WINEPREFIX="/home/idle_zealot/.wine" wine "/home/idle_zealot/.wine/dosdevices/c:/Program Files (x86)/Amazon/Kindle/Kindle.exe"

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+while inotifywait -e modify "$QUTE_URL"; do
+  echo "reload" >> "$QUTE_FIFO"
+done

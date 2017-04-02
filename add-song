@@ -1,0 +1,19 @@
+#!/bin/bash
+
+MP3_PATH="/media/chest/mus/mp3/"
+FLAC_PATH="/media/chest/mus/flac/"
+OPUS_PATH="/media/chest/mus/opus/"
+MUS_PATH="$HOME/mus/"
+for arg in "$@"; do
+    ext=${arg##*.}
+    if [[ $ext == mp3 ]]; then
+        mv "$arg" "$MP3_PATH"
+    fi
+    if [[ $ext == flac ]]; then
+        mv "$arg" "$FLAC_PATH"
+    fi
+    if [[ $ext == opus ]]; then
+        cp "$arg" "/home/idle_zealot/mus/"
+        mv "$arg" "$OPUS_PATH"
+    fi
+done

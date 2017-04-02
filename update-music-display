@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pkill -RTMIN+10 i3blocks
+
+#/home/idle_zealot/script/now-playing > /tmp/now-playing

@@ -1,0 +1,6 @@
+touch ${1%md}html
+markdown "$1" > ${1%md}html
+qutebrowser -R --qt-name mdpreview --target window "${1%md}html" &
+while inotifywait -e modify "$1"; do
+  markdown "$1" > ${1%md}html
+done

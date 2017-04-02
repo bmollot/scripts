@@ -1,0 +1,8 @@
+#!/bin/bash
+
+zenity --question --text "Try to open link with mpv?"
+if [ $? -eq 0 ]; then
+   mpv $1
+else
+   firefox $1
+fi

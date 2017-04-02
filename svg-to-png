@@ -1,0 +1,2 @@
+#!/bin/sh
+for i in *; do inkscape $PWD/$i --export-png=`echo $PWD/$i | sed -e 's/svg$/png/'`; done

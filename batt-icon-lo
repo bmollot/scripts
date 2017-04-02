@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+  BATT=$(/home/idle_zealot/script/batt-percent)
+else
+  BATT="$1"
+fi
+
+if [ $BATT -ge 90 ]
+then
+  echo 
+elif [ $BATT -ge 80 ]
+then
+  echo 
+elif [ $BATT -ge 70 ]
+then
+  echo 
+elif [ $BATT -ge 60 ]
+then
+  echo 
+elif [ $BATT -ge 50 ]
+then
+  echo 
+elif [ $BATT -ge 40 ]
+then
+  echo 
+elif [ $BATT -ge 30 ]
+then
+  echo 
+elif [ $BATT -ge 20 ]
+then
+  echo 
+elif [ $BATT -ge 10 ]
+then
+  echo 
+else
+  echo 
+fi

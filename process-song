@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for arg in "$@"; do
+    NAME=${arg%.*}
+    multicode-song "$arg"
+    extract-tags "${NAME}.flac" "${NAME}.opus" "${NAME}.mp3"
+    add-song "${NAME}.flac" "${NAME}.opus" "${NAME}.mp3"
+done

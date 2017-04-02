@@ -1,0 +1,3 @@
+#!/bin/sh
+printf `zenity --title="Sudo Password" --password`\\n > /tmp/pass.tmp
+sudo -S shutdown 0 < /tmp/pass.tmp

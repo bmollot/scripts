@@ -1,0 +1,12 @@
+#!/bin/bash
+
+total=0
+bats=0
+
+for i in $(ls /sys/class/power_supply/ | grep BAT)
+do
+  cd /sys/class/power_supply/$i
+  total=$(expr $(cat energy_now) \* 100 / $(cat energy_full) + $total)
+  bats=$(expr $bats + 1)
+done;
+expr $total / $bats

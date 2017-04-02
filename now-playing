@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# SETTINGS
+NOW_PLAYING_PIPE="/tmp/now-playing"
+
+title=""
+artist=""
+stat="stopped"
+
+while [ "$1" '!=' "" ]
+do
+  case "$1" in
+    status)
+      stat="$2"
+    ;;
+    artist)
+      artist="$2"
+    ;;
+    title)
+      title="$2"
+    ;;
+    *)
+    ;;
+  esac
+  shift
+  shift
+done
+
+msg=""
+if [ "$stat" '=' 'stopped' ]
+then
+    msg=""
+else
+  if [ "$stat" '=' 'paused' ]
+  then
+    msg="${msg}"
+  else
+    msg="${msg}"
+  fi
+
+  if [ -n "$artist" ]
+  then
+    msg="$msg $artist -"
+  fi
+
+  if [ -n "$title" ]
+  then
+    msg="$msg $title"
+  else
+    if [ -n "$file" ]
+    then
+      msg="$msg `basename "$file"`"
+    else
+      msg="$msg <noname>"
+    fi
+  fi
+fi
+
+echo "$msg" > "$NOW_PLAYING_PIPE"
+
+# Wake the display
+/home/idle_zealot/script/update-music-display

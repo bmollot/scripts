@@ -1,0 +1,13 @@
+#!/bin/bash
+
+IP=$(/usr/lib/i3blocks/iface | head -n1)
+if [ -z "$IP" ]
+then
+  echo '<span font="ctrld 13" fgcolor="#03A9F4"></span><span font="ctrld 13" bgcolor="#03A9F4"> XXX.XXX.XXX.XXX</span>'
+else
+  for (( c=15 - ${#IP}; c>0; c-- ))
+  do
+    SPACES="${SPACES} "
+  done
+  echo '<span font="ctrld 13" fgcolor="#03A9F4"></span><span font="ctrld 13" bgcolor="#03A9F4"> '"${SPACES}"${IP}'</span>'
+fi
