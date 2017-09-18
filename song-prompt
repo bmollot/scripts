@@ -1,0 +1,8 @@
+#!/bin/sh
+# Depends on mpc, rofi, rev, cut
+
+searchterm=$(mpc listall | rev | cut -d. -f1 --complement | rev | rofi -dmenu -i -levenshtein-sort -matching fuzzy -tokenize -p 'Song: ')
+searchterm=${searchterm/ - /|}
+searchterm=$(echo $searchterm | cut -d'|' -f2)
+echo $searchterm
+[ "$searchterm" == "" ] || mpc searchplay any "$searchterm"

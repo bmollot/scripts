@@ -1,0 +1,3 @@
+#!/bin/bash
+export WINEPREFIX="$HOME/bin/BlizzardApp"
+wine "$WINEPREFIX/drive_c/Program Files/Blizzard App/Battle.net Launcher.exe"

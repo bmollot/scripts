@@ -1,0 +1,6 @@
+#!/bin/sh
+# Depends on rofi
+
+searchterm=$(rofi -dmenu -i -levenshtein-sort -matching fuzzy -tokenize -p 'Word: ')
+echo $searchterm
+[ "$searchterm" == "" ] || zenity --info --width="500" --height="500"  --text="$(sdcv -nu WordNet $searchterm)"

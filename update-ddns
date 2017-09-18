@@ -1,0 +1,10 @@
+#!/bin/bash
+
+IP=$(wanip)
+echo $IP
+
+curl -X PUT "https://api.cloudflare.com/client/v4/zones/d72c77de2f6e5487d11552bf1578290f/dns_records/e00065470d3e07210ffd015df9438d6b" \
+-H "X-Auth-Email: 3mollot@gmail.com" \
+-H "X-Auth-Key: 94c3b8ea26edb7cbd182c11aa64359e768034" \
+-H "Content-Type: application/json" \
+--data '{"type":"A","name":"xn--n8j1b.ga","content":"'$IP'"}'

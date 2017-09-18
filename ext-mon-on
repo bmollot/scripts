@@ -1,7 +1,12 @@
 #!/bin/sh
 modmap
-xrandr --output eDP1 --off
 xrandr --addmode DP2-2 1920x1080
+xrandr --addmode DP2-3 1920x1080
 xrandr --output DP2-2 --mode 1920x1080
-xrandr --output DP2-3 --auto
+xrandr --output DP2-3 --mode 1920x1080
 xrandr --output DP2-2 --left-of DP2-3
+xrandr --output eDP1 --off
+
+# Fix polybar being on wrong display sometimes
+killall polybar
+polybar mybar
